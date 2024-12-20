@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>mybatis idea多级目录的坑</title>
         <meta name="description" content="平时创建文件时，总是直接在定义文件名时写成 “包名.类名" 的形式，如”controller.UserController“，所以创建mybatis的mapper文件时，就顺手写成了 ”mybatis" />
-        <link rel="icon" href="__ADDON__/img/xraynode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
@@ -106,7 +106,8 @@
         <div class="container py-md-5 py-4">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>平时创建文件时，总是直接在定义文件名时写成 “包名.类名" 的形式，如”controller.UserController“，所以创建mybatis的mapper文件时，就顺手写成了 ”mybatis.mapper.userMapper.xml“，同时定义了<br /> mybatis.mapper-locations，结果就疯狂报<br /> ”org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)“的异常。<br /><strong>解决方案</strong><br /> 在创建多级目录时，并不是以”.“作为层级目录的分割，而是以”/“分割目录的，所以应该写成<br /> ”mybatis/mapper/userMapper.xml“<br /> 而在src下创建包时，是通过“.”作为子包的分割，例如“service.impl.UserServiceImpl”</p> <p><strong>补充</strong><br /> 此外，判断BindingException（绑定异常）的切入点，应该从Dao和Mapper是否绑定入手，主要是看运行后生成的target文件夹中有没有对应的Mapper文件。</p> <p>如果Mapper.xml文件创建在resources目录下，在编译时会与类目录合并，也就是与类文件放在了一起，那么根据我的配置，就应该在target-&gt;classes-&gt;mybatis-&gt;mapper-&gt;xxx.xml。</p> <p>如果存在此文件，就可以查看其他地方配置正确了没有，如mapper-locations=classpath:mybatis/mapper/*.xml，这里的classpath指的就是target目录下的classes，因为是相对路径，mybatis前不能有’/’。等等其他的配置。</p> <p>如果不存在此文件，说明xml文件未被扫描到，说明静态文件载入问题。就需要在pom.xml中的build下添加resource的配置。当然，配置在resources目录下一般不会出现这个问题。</p> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>平时创建文件时，总是直接在定义文件名时写成 “包名.类名" 的形式，如”controller.UserController“，所以创建mybatis的mapper文件时，就顺手写成了 ”mybatis.mapper.userMapper.xml“，同时定义了<br /> mybatis.mapper-locations，结果就疯狂报<br /> ”org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)“的异常。<br /><strong>解决方案</strong><br /> 在创建多级目录时，并不是以”.“作为层级目录的分割，而是以”/“分割目录的，所以应该写成<br /> ”mybatis/mapper/userMapper.xml“<br /> 而在src下创建包时，是通过“.”作为子包的分割，例如“service.impl.UserServiceImpl”</p> <p><strong>补充</strong><br /> 此外，判断BindingException（绑定异常）的切入点，应该从Dao和Mapper是否绑定入手，主要是看运行后生成的target文件夹中有没有对应的Mapper文件。</p> <p>如果Mapper.xml文件创建在resources目录下，在编译时会与类目录合并，也就是与类文件放在了一起，那么根据我的配置，就应该在target-&gt;classes-&gt;mybatis-&gt;mapper-&gt;xxx.xml。</p> <p>如果存在此文件，就可以查看其他地方配置正确了没有，如mapper-locations=classpath:mybatis/mapper/*.xml，这里的classpath指的就是target目录下的classes，因为是相对路径，mybatis前不能有’/’。等等其他的配置。</p> <p>如果不存在此文件，说明xml文件未被扫描到，说明静态文件载入问题。就需要在pom.xml中的build下添加resource的配置。当然，配置在resources目录下一般不会出现这个问题。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-21717.htm">成都宠物领养中心官网收容中心地址在哪里（成都宠物收养所）</a></p>
                                         <p>下一个：<a href="/news/article-22224.htm">开宠物医院需要多少钱投资成本（开宠物医院需要多少钱投资成本呢）</a></p>
@@ -119,16 +120,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-today-winxray-node.htm" title="「10月19日」最高速度20.6M/S，2024年XRay每天更新免费节点订阅链接">「10月19日」最高速度20.6M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22222.htm" title="mybatis idea多级目录的坑">mybatis idea多级目录的坑</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-10-node-share.htm" title="「9月10日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接">「9月10日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-subscribe-node.htm" title="「10月12日」最高速度21.1M/S，2024年XRay每天更新免费节点订阅链接">「10月12日」最高速度21.1M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-subscribe-node.htm" title="「11月4日」最高速度20.2M/S，2024年XRay每天更新免费节点订阅链接">「11月4日」最高速度20.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-today-winxray-node.htm" title="「11月27日」最高速度18.2M/S，2024年XRay每天更新免费节点订阅链接">「11月27日」最高速度18.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-winxray-windows.htm" title="「11月13日」最高速度18.1M/S，2024年XRay每天更新免费节点订阅链接">「11月13日」最高速度18.1M/S，2024年XRay每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-10-20-node-share-links.htm" title="「10月20日」最高速度20.1M/S，2024年XRay每天更新免费节点订阅链接">「10月20日」最高速度20.1M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-high-speed-nodes.htm" title="「10月6日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接">「10月6日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-node-subscribe.htm" title="「9月27日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接">「9月27日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23136.htm" title="动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）">动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-9-free-node-subscribe-links.htm" title="「8月9日」最高速度20.1M/S，2024年XRay每天更新免费节点订阅链接">「8月9日」最高速度20.1M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-node-share.htm" title="「11月17日」最高速度21.4M/S，2024年XRay每天更新免费节点订阅链接">「11月17日」最高速度21.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18797.htm" title="给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）">给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）</a></li>
+                        <li class="py-2"><a href="/news/article-21717.htm" title="成都宠物领养中心官网收容中心地址在哪里（成都宠物收养所）">成都宠物领养中心官网收容中心地址在哪里（成都宠物收养所）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-free-high-speed-nodes.htm" title="「8月4日」最高速度19.3M/S，2024年XRay每天更新免费节点订阅链接">「8月4日」最高速度19.3M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-25-free-node-subscribe-links.htm" title="「7月25日」最高速度18.2M/S，2024年XRay每天更新免费节点订阅链接">「7月25日」最高速度18.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-winxray-windows.htm" title="「12月11日」最高速度22.2M/S，2024年XRay每天更新免费节点订阅链接">「12月11日」最高速度22.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26386.htm" title="使用pandas输出完整对齐表格的方法">使用pandas输出完整对齐表格的方法</a></li>
                     </ul>
     </div>
 </div>
@@ -140,7 +141,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -175,7 +176,16 @@
                     <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
                         <!-- copyright -->
                         <p class="copy-footer-29 mt-4">
-                        XRayNode每日订阅站 版权所有 Powered by WordPress
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
                         </p>
                     </div>
                 </div>
