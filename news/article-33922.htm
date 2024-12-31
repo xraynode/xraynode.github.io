@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://xraynode.github.io/news/article-33922.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue-cli3.0 吃过的坑</title>
+        <meta name="description" content="为什么要使用 vue-cli3.0   模板更加制定化   配置更加简洁   如何新建项目 使用 npm 全局安装 vue-cli ：  npm install -g @vue/cli //如果已经安" />
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+    <!-- google-fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/fontawesome-all.min.css">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX80YQ9BLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX80YQ9BLW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                                    <a class="navbar-brand" href="/">
+                        XRay Node
+                    </a>
+                                    
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- //search button -->
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h1 class="inner-text-title font-weight-bold pt-5">vue-cli3.0 吃过的坑</h1>
+                <ul class="breadcrumbs-custom-path mt-3">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><i class="fas fa-angle-right mx-2"></i>新闻资讯</a></li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>正文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- video section -->
+    <section class="w3l-ab-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2><a id="_vuecli30_2" rel="nofollow"></a>为什么要使用 vue-cli3.0</h2> <ol> <li> <p>模板更加制定化</p> </li> <li> <p>配置更加简洁</p> </li> </ol> <h2><a id="_8" rel="nofollow"></a>如何新建项目</h2> <h3><a id="_npm__vuecli__10" rel="nofollow"></a>使用 npm 全局安装 vue-cli ：</h3> <ol> <li>npm install -g @vue/cli //如果已经安装过就不用安装了<br /> 我自己喜欢用yarn 安装<br /> 2 yarn global add @vue/cli</li> </ol> <h3><a id="_16" rel="nofollow"></a>创建项目执行：</h3> <ol> <li>vue create my-project//my-project 就是你自己随意起的一个文件夹名字</li> </ol> <h3><a id="_20" rel="nofollow"></a>选择项目类型</h3> <pre><code class="prism language-js">Vue<span class="token constant">CLI</span> v3<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span>beta<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span><span class="token punctuation">(</span>Use arrow keys<span class="token punctuation">)</span><span class="token operator">&gt;</span> xs<span class="token operator">-</span><span class="token keyword">default</span><span class="token punctuation">(</span>vue<span class="token operator">-</span>router<span class="token punctuation">,</span> vuex<span class="token punctuation">,</span> stylus<span class="token punctuation">,</span> babel<span class="token punctuation">,</span> pwa<span class="token punctuation">,</span> eslint<span class="token punctuation">,</span> unit<span class="token operator">-</span>jest<span class="token punctuation">)</span><span class="token comment">// 这是我运行过之后的默认设置，第一次执行create是没有的</span><span class="token keyword">default</span><span class="token punctuation">(</span>babel<span class="token punctuation">,</span> eslint<span class="token punctuation">)</span><span class="token operator">&gt;</span> Manually select features<span class="token comment">//我选的是手动安装  因为不喜欢用eslint 如果实在是不幸装了这个 就在自己配置的vue.config.js里面去加一行代码    lintOnSave:false, 表示关闭格式化检查</span><span class="token comment">// 注：按键盘上下键选择默认（default）还是手动（Manually），</span><span class="token comment">//如果选择default，一路回车执行下去就行了（注：现在vue-cli3.0默认使用yarn下载），这里我选择手动，</span></code></pre> <h3><a id="_33" rel="nofollow"></a>选择特性支持</h3> <pre><code class="prism language-js"><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span><span class="token punctuation">(</span>Press<span class="token operator">&lt;</span>space<span class="token operator">&gt;</span> to select<span class="token punctuation">,</span><span class="token operator">&lt;</span>a<span class="token operator">&gt;</span> to toggle all<span class="token punctuation">,</span><span class="token operator">&lt;</span>i<span class="token operator">&gt;</span> to invert selection<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> TypeScript<span class="token comment">// 支持使用 TypeScript 书写源码</span><span class="token punctuation">(</span><span class="token punctuation">)</span> Progressive Web<span class="token function">App</span><span class="token punctuation">(</span><span class="token constant">PWA</span><span class="token punctuation">)</span> Support<span class="token comment">// PWA 支持</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> Router<span class="token comment">// 支持 vue-router</span><span class="token punctuation">(</span><span class="token punctuation">)</span> Vuex<span class="token comment">// 支持 vuex</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token comment">// 支持 CSS 预处理器。</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> Linter<span class="token operator">/</span> Formatter<span class="token comment">// 支持代码风格检查和格式化。</span><span class="token punctuation">(</span><span class="token punctuation">)</span> Unit Testing<span class="token comment">// 支持单元测试。</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token constant">E2E</span> Testing<span class="token comment">// 支持 E2E 测试。</span><span class="token comment">// 注意：你要集成什么就选就行了（注：空格键是选中与取消，A键是全选）</span><span class="token comment">//打*是我的选的配置</span></code></pre> <h3><a id="cssless_52" rel="nofollow"></a>选择css预处理，这里我选择less</h3> <pre><code class="prism language-js"><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token constant">SCSS</span><span class="token operator">/</span><span class="token constant">SASS</span><span class="token operator">&gt;</span><span class="token constant">LESS</span>   Stylus</code></pre> <h3><a id="ESLint__Prettier_65" rel="nofollow"></a>选择ESLint + Prettier</h3> <pre><code class="prism language-js"><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Stylus<span class="token operator">?</span> Pick a linter<span class="token operator">/</span> formatter config<span class="token punctuation">:</span><span class="token punctuation">(</span>Use arrow keys<span class="token punctuation">)</span><span class="token operator">&gt;</span> ESLint<span class="token keyword">with</span> error prevention only   ESLint<span class="token operator">+</span> Airbnb config   ESLint<span class="token operator">+</span> Standard config   ESLint<span class="token operator">+</span> Prettier<span class="token comment">//这里逃脱不了感觉, 所以最后还是自己配一个vue.config.js吧  然后这里去关闭eslint</span></code></pre> <h3><a id="_80" rel="nofollow"></a>选择语法检查方式，这里我选择保存就检测</h3> <pre><code class="prism language-js"> Vue<span class="token constant">CLI</span> v3<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span>beta<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Stylus<span class="token operator">?</span> Pick a linter<span class="token operator">/</span> formatter config<span class="token punctuation">:</span> Prettier<span class="token operator">?</span> Pick additional lint features<span class="token punctuation">:</span><span class="token punctuation">(</span>Press<span class="token operator">&lt;</span>space<span class="token operator">&gt;</span> to select<span class="token punctuation">,</span><span class="token operator">&lt;</span>a<span class="token operator">&gt;</span> to toggle all<span class="token punctuation">,</span><span class="token operator">&lt;</span>i<span class="token operator">&gt;</span> to invert selection<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> Lint on save<span class="token comment">// 保存就检测</span><span class="token punctuation">(</span><span class="token punctuation">)</span> Lint and fix on commit<span class="token comment">// fix和commit时候检查</span></code></pre> <h3><a id="_95" rel="nofollow"></a>选择单元测试</h3> <pre><code class="prism language-js"> Vue<span class="token constant">CLI</span> v3<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span>beta<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Stylus<span class="token operator">?</span> Pick a linter<span class="token operator">/</span> formatter config<span class="token punctuation">:</span> Prettier<span class="token operator">?</span> Pick additional lint features<span class="token punctuation">:</span> Lint on save<span class="token operator">?</span> Pick a unit testing solution<span class="token punctuation">:</span><span class="token punctuation">(</span>Use arrow keys<span class="token punctuation">)</span><span class="token operator">&gt;</span> Mocha<span class="token operator">+</span> Chai   Jest</code></pre> <h3><a id="_babelpostcsseslint_111" rel="nofollow"></a>她会问你 ，把babel,postcss,eslint这些配置文件放哪，这里随便选，我选择放在独立文件夹</h3> <pre><code class="prism language-js"> Vue<span class="token constant">CLI</span> v3<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span>beta<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Stylus<span class="token operator">?</span> Pick a linter<span class="token operator">/</span> formatter config<span class="token punctuation">:</span> Prettier<span class="token operator">?</span> Pick additional lint features<span class="token punctuation">:</span> Lint on save<span class="token operator">?</span> Pick a unit testing solution<span class="token punctuation">:</span> Jest<span class="token operator">?</span> Where<span class="token keyword">do</span> you prefer placing config<span class="token keyword">for</span> Babel<span class="token punctuation">,</span> PostCSS<span class="token punctuation">,</span> ESLint<span class="token punctuation">,</span> etc<span class="token punctuation">.</span><span class="token operator">?</span><span class="token punctuation">(</span>Use arrow keys<span class="token punctuation">)</span><span class="token operator">&gt;</span> In dedicated config files<span class="token comment">// 独立文件放置</span>   In<span class="token keyword">package</span><span class="token punctuation">.</span>json<span class="token comment">// 放package.json里</span><span class="token comment">//这两个我都放过 我觉得无所谓吧  看个人习惯</span></code></pre> <h3><a id="NYxsdefault_128" rel="nofollow"></a>键入N不记录，如果键入Y需要输入保存名字，如第一步所看到的我保存的名字为xs-default</h3> <pre><code class="prism language-js"> Vue<span class="token constant">CLI</span> v3<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span>beta<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">?</span> Please pick a preset<span class="token punctuation">:</span> Manually select features<span class="token operator">?</span> Check the features needed<span class="token keyword">for</span> your project<span class="token punctuation">:</span> Router<span class="token punctuation">,</span> Vuex<span class="token punctuation">,</span><span class="token constant">CSS</span> Pre<span class="token operator">-</span>processors<span class="token punctuation">,</span> Linter<span class="token punctuation">,</span> Unit<span class="token operator">?</span> Pick a<span class="token constant">CSS</span> pre<span class="token operator">-</span><span class="token function">processor</span><span class="token punctuation">(</span>PostCSS<span class="token punctuation">,</span> Autoprefixer and<span class="token constant">CSS</span> Modules are supported by<span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Stylus<span class="token operator">?</span> Pick a linter<span class="token operator">/</span> formatter config<span class="token punctuation">:</span> Prettier<span class="token operator">?</span> Pick additional lint features<span class="token punctuation">:</span> Lint on save<span class="token operator">?</span> Pick a unit testing solution<span class="token punctuation">:</span> Jest<span class="token operator">?</span> Where<span class="token keyword">do</span> you prefer placing config<span class="token keyword">for</span> Babel<span class="token punctuation">,</span> PostCSS<span class="token punctuation">,</span> ESLint<span class="token punctuation">,</span> etc<span class="token punctuation">.</span><span class="token operator">?</span> In dedicated config files<span class="token operator">?</span> Save<span class="token keyword">this</span><span class="token keyword">as</span> a preset<span class="token keyword">for</span> future projects<span class="token operator">?</span><span class="token punctuation">(</span><span class="token constant">Y</span><span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token comment">// 是否记录一下以便下次继续使用这套配置</span></code></pre> <h3><a id="_144" rel="nofollow"></a>确定后，等待下载依赖模块</h3> <h2><a id="_146" rel="nofollow"></a>启动项目</h2> <ol> <li> <p>初始完之后，进入到项目根目录： cd my-project</p> </li> <li> <p>启动项目：npm run serve 或者是yarn serve</p> </li> <li> <p>在浏览器输入http://localhost:8080就可以看到vue的欢迎界面</p> </li> </ol> <h2><a id="_154" rel="nofollow"></a>打包上线</h2> <ol> <li> <p>vue-cli 也提供了打包的命令，在项目根目录下执行： npm run build</p> </li> <li> <p>执行完之后，可以看到在项目根目录下多出了一个 dist 目录，该目录下就是打包好的所有静态资源，直接部署到静态资源服务器就好了。</p> </li> </ol> <h2><a id="_160" rel="nofollow"></a>项目的大致目录结构</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220820/fd69746d6564a03fbc1c520f6ac87337.jpg" alt="vue-cli3.0 吃过的坑"></p> <ol> <li> <p>现在的目录是3.0的cli看上去简洁多了，去掉了2.0 build和config等目录</p> </li> <li> <p>关于代码编写基本上与vue2的目录结构相差不大</p> </li> </ol> <h2><a id="_167" rel="nofollow"></a>注意：</h2> <ol> <li>如果想要修改端口号以及webpack配置，需要你在根目录下面创建一个vue.config.js</li> </ol> <h2><a id="vueconfigjs_171" rel="nofollow"></a>vue.config.js完整默认配置</h2> <pre><code class="prism language-js">module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token comment">/** 区分打包环境与开发环境    * process.env.NODE_ENV==='production'  (打包环境)    * process.env.NODE_ENV==='development' (开发环境)    * baseUrl: process.env.NODE_ENV==='production'?"https://cdn.didabisai.com/front/":'front/',    */</span><span class="token comment">// 基本路径</span>  baseUrl<span class="token punctuation">:</span><span class="token string">'/'</span><span class="token punctuation">,</span><span class="token comment">// 输出文件目录</span>  outputDir<span class="token punctuation">:</span><span class="token string">'dist'</span><span class="token punctuation">,</span><span class="token comment">// eslint-loader 是否在保存的时候检查</span>  lintOnSave<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// use the full build with in-browser compiler?</span><span class="token comment">// https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only</span>  compiler<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">// webpack配置</span><span class="token comment">// see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md</span>  chainWebpack<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span>  configureWebpack<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">//如果想要引入babel-polyfill可以这样写</span><span class="token comment">// configureWebpack: (config) =&gt; {<!-- --></span><span class="token comment">//   config.entry = ["babel-polyfill", "./src/main.js"]</span><span class="token comment">// },</span><span class="token comment">// vue-loader 配置项</span><span class="token comment">// https://vue-loader.vuejs.org/en/options.html</span>  vueLoader<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// 生产环境是否生成 sourceMap 文件</span>  productionSourceMap<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// css相关配置</span>  css<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 是否使用css分离插件 ExtractTextPlugin</span>   extract<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// 开启 CSS source maps?</span>   sourceMap<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">// css预设器配置项</span>   loaderOptions<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// 启用 CSS modules for all css / pre-processor files.</span>   modules<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// use thread-loader for babel &amp; TS in production build</span><span class="token comment">// enabled by default if the machine has more than 1 cores</span>  parallel<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cpus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 是否启用dll</span><span class="token comment">// See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#dll-mode</span>  dll<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">// PWA 插件相关配置</span><span class="token comment">// see https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa</span>  pwa<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// webpack-dev-server 相关配置</span>  devServer<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>   open<span class="token punctuation">:</span> process<span class="token punctuation">.</span>platform<span class="token operator">===</span><span class="token string">'darwin'</span><span class="token punctuation">,</span>   host<span class="token punctuation">:</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>   port<span class="token punctuation">:</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token comment">//我个人喜好用3000</span>   https<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>   hotOnly<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>   proxy<span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token comment">// 设置代理</span>   before<span class="token punctuation">:</span> app<span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// 第三方插件配置</span>  pluginOptions<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// ...</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="_240" rel="nofollow"></a>后记：</h2> <ol> <li> <p>当你准备着手一个新的项目的时候，请事先想清楚这个项目的架构以及用到的ui组件等等</p> </li> <li> <p>比如我们的项目</p> </li> </ol> <pre><code>1. 使用vant UI组件 2. 封装axios服务 3. 使用路由拆分（基于history） 4. 路由切换动画 。。。 反正感觉这个 我应该自己还会再加东西 因为vue.config.js里面的baseURL 感觉还没有配完  但是在上线之前 不用配vue.config.js  到时候再补吧</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33464.htm">农大动物医院几点关门营业（农大动物医院急诊电话）</a></p>
+                                        <p>下一个：<a href="/news/article-33923.htm">狗粮颗粒机二手市场（狗粮设备生产线二手）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33923.htm" title="狗粮颗粒机二手市场（狗粮设备生产线二手）">狗粮颗粒机二手市场（狗粮设备生产线二手）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-latest-winxray-node.htm" title="「9月12日」最高速度20.6M/S，2024年XRay每天更新免费节点订阅链接">「9月12日」最高速度20.6M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe.htm" title="「11月24日」最高速度18.6M/S，2024年XRay每天更新免费节点订阅链接">「11月24日」最高速度18.6M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-node-subscribe.htm" title="「12月20日」最高速度20.7M/S，2024年XRay每天更新免费节点订阅链接">「12月20日」最高速度20.7M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-winxray-node.htm" title="「12月26日」最高速度19.2M/S，2024年XRay每天更新免费节点订阅链接">「12月26日」最高速度19.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-node-share.htm" title="「9月10日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接">「9月10日」最高速度19.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-today-winxray-node.htm" title="「12月12日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接">「12月12日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-node-subscribe.htm" title="「9月27日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接">「9月27日」最高速度21.7M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-node-share-links.htm" title="「8月27日」最高速度19M/S，2024年XRay每天更新免费节点订阅链接">「8月27日」最高速度19M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26859.htm" title="全国兽药50强企业名单公布时间（全国兽药50强企业名单公布时间最新）">全国兽药50强企业名单公布时间（全国兽药50强企业名单公布时间最新）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //video section -->
+
+        <!-- footer -->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                        <!-- copyright -->
+                        <p class="copy-footer-29 mt-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/xraynode/jquery-3.5.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/xraynode/jquery.magnific-popup.min.js"></script>
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/xraynode/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="/assets/website/js/frontend/xraynode/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
