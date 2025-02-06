@@ -1,0 +1,297 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://xraynode.github.io/news/article-50187.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</title>
+        <meta name="description" content="本文是关于TOWARDS EFFICIENT MODELS FOR REAL-TIME DEEP NOISE SUPPRESSION的介绍，作者是Microsoft Research的Sebastia" />
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="XRayNode每日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://xraynode.github.io/news/article-50187.htm" />
+    <meta property="og:site_name" content="XRayNode每日订阅站" />
+    <meta property="og:title" content="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu" />
+    <meta property="og:image" content="https://xraynode.github.io/uploads/20240722/9406c34a9cc4289ba6af5fa60fa7cbff.webp" />
+        <meta property="og:release_date" content="2025-02-02T09:28:26" />
+    <meta property="og:updated_time" content="2025-02-02T09:28:26" />
+        <meta property="og:description" content="本文是关于TOWARDS EFFICIENT MODELS FOR REAL-TIME DEEP NOISE SUPPRESSION的介绍，作者是Microsoft Research的Sebastia" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/fontawesome-all.min.css">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX80YQ9BLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX80YQ9BLW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                <a class="navbar-brand" href="/">
+                                    <span>XRay Node</span>
+                                </a>
+                    
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- //search button -->
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h1 class="inner-text-title font-weight-bold pt-5">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</h1>
+                <ul class="breadcrumbs-custom-path mt-3">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><i class="fas fa-angle-right mx-2"></i>新闻资讯</a></li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>正文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- video section -->
+    <section class="w3l-ab-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <blockquote> <p>本文是关于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://arxiv.org/pdf/2101.09249.pdf"  target="_blank" rel="nofollow">TOWARDS EFFICIENT MODELS FOR REAL-TIME DEEP NOISE SUPPRESSION</a>的介绍，作者是Microsoft Research的Sebastian Braun等。相关工作的上下文可以参看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/VincentLau-blog/p/Deep_Learning_in_speech_enhancement.html"  target="_blank" rel="nofollow">博文</a></p> </blockquote> <h2 id="概述">概述</h2> <p>本文设计的是基于深度学习的语音增强模型，工作的贡献点有二：</p> <ul> <li>基于深度学习语音增强模型在实录数据的性能</li> <li>一套用于语音增强的数据增强方法</li> <li>模型计算复杂度和语音质量（主要是MOS）的折衷的消融实验结果</li> </ul> <h2 id="动机">动机</h2> <ul> <li>本文要解决的核心问题是：目前语音增强模型普遍为了获得更好的性能，不断增加模型的计算量。而更需要关心的问题是：如何在给定最大计算量要求下设计出最有效的模型（How to obtain the best speech quality given a maximum computational budget?），因为这在边缘设备(edge devices)和低功耗设备上是重要的</li> </ul> <h2 id="系统与模型">系统与模型</h2> <p>系统框图如下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/89d16a8de151e56492f11c2a8b99d133.jpg" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "><br /> 要说明如下几点：</p> <ul> <li>选择频域模型的原因：时域模型在带混响数据和实录数据上的泛化性能没有被验证</li> <li>特征采用的是对数功率谱，网络估计目标是IRM，损失则是利用SA方法</li> <li>IRM作用在带噪STFT谱后（这里为避免混淆，将其称为重构谱）进行STFT一致性约束，即先将谱iSTFT后再STFT（将STFT后的谱成为约束谱），之后对约束谱进行信号量级归一化后计算压缩复谱的MSE损失，这里直接给出合并了信号量级归一化和压缩复谱MSE损失的公式，所以比论文中的损失公式多了一个归一化因子项：<span class="math inline">\(\mathcal{L}=\frac{1}{\sigma_S^{c}}(\lambda\sum_{k,n}{|S^c-\widehat{S}^c|^2+(1-\lambda)(\sum_{k,n}{||S|^c-|\widehat{S}|^c|^2})})\)</span>，其中<span class="math inline">\(\sigma_S\)</span>是纯净语音有声段的能量，压缩谱的操作定义为<span class="math inline">\(X_{cprs}=\frac{X(k,n)}{|X(k,n)|}|X(k,n)|^{c}\)</span>，<span class="math inline">\(c\)</span>和<span class="math inline">\(\lambda\)</span>作者推荐都为0.3。</li> <li>验证阶段按<span class="math inline">\(Q=PESQ+0.2SI-SDR-CD\)</span>选择最优的模型，其中PESQ，SI-SDR和倒谱距离分别是三个语音质量评估指标</li> <li>训练的batch size=10，句子长度10 s，AdamW优化器，学习率(learning rate)为8e-5，权重衰减(weight decay)为0.1<br /> 模型CRUSE架构如下图，整体上沿用了谭可的GCRN：<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/1516697/202204/1516697-20220424173154089-1080554640.png" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "></li> <li>主要组成部分有三部分：编码器、解码器、时序建模。其中编解码器是一个U-Net结构，即<span class="math inline">\(L\)</span>层卷积编码层和<span class="math inline">\(L\)</span>层卷积解码层。卷积编码层就是卷积层+BN+leakyReLU，解码层就是转置卷积+BN+leakyReLU，不过最后一个解码层的激活函数为sigmoid以保证输出为IRM。卷积或转置卷积层的kernel size是<span class="math inline">\(2 \times 3\)</span>，stride是<span class="math inline">\(1 \times 2\)</span> (均为时间帧维×频点维)，即时间维上通过编码器补零和解码器截断完成因果卷积，频率维则每层尺度减半。时序建模采用的是分组GRU，因为GRU比LSTM计算复杂度更低，分组策略则与GCRN中的分组LSTM一致。编解码器对应层之间用跳转连接联系，这里的跳转连接使用<span class="math inline">\(1\times1\)</span>卷积和加法连接实现的，从而降低GCRN中拼接连接带来解码层巨大的输入维度导致的过高的计算量，加法拼接如下图<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/1516697/202204/1516697-20220424174650713-927078105.png" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "></li> </ul> <h2 id="算法参数">算法参数</h2> <p>16 kHz的采样率，20 ms帧长，10 ms帧移以及320点FFT。输入特征是<span class="math inline">\(Batch_size \times 1 \times num_frames \times num_bins\)</span>，卷积层通道数从16开始，依次加倍，直到倒数第二层，最后一层输出通道数则为<span class="math inline">\(C_L\)</span>，比如<span class="math inline">\(L=4\)</span>层且<span class="math inline">\(C_L=120\)</span>，则卷积层的输出通道数依次为<span class="math inline">\(16-32-64-120\)</span>，转置卷积层的输出通道数依次为<span class="math inline">\(64-32-16-1\)</span>，最后一层始终为1以保证输出是幅度掩蔽。分组GRU的层数为<span class="math inline">\(N\)</span>分组数为<span class="math inline">\(P\)</span>。网络命名规则为<span class="math inline">\(CRUSEL-C_L-N \times RNNP\)</span></p> <h2 id="数据集的增广">数据集的增广</h2> <p>数据集的增广方法可以参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/VincentLau-blog/p/Deep_Learning_in_speech_enhancement.html"  target="_blank" rel="nofollow">博文</a><br /> 评估指标是用于评价语音质量的DNSMOS(P.808)和用于评估计算量的MACs，需要注意的是这里的DNSMOS(P.808)应该是与目前(2022/04/24)可用的DNSMOS(P.808&amp;P.835)中的P.808的分数有差异了</p> <h2 id="实验结果">实验结果</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a385d5fdac4e6e29ee80aba4b37339d3.jpg" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "><br /> (图中横轴是MACs,纵轴是<span class="math inline">\(\Delta\)</span>MOS，因此在图中偏左上的方法更优)<br /> 分析结论：</p> <ul> <li>CRUSE5中的2层LSTM换成2层GRU甚至1层GRU会在性能下降极小的情况下大幅度降低计算复杂度</li> <li>GRU分组后性能少量下降但是会带来计算复杂度下降</li> <li>编解码器卷积层中的kernel时间维从2降到1(图中的<span class="math inline">\(*-1D\)</span>模型)，性能下降严重，推测是混响的原因，因为GCRN在降噪任务上评估时没有明显的性能下降</li> <li>编解码器尤其是时间维度进行卷积对性能提升帮助很大</li> <li>MOS和MACs大体呈线性相关的趋势</li> <li>使用分组为4的GRU并结合add conv<span class="math inline">\(1 \times 1\)</span> skip的CRUSE4是本文的最佳折衷方案<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/1516697/202204/1516697-20220424182153784-1484088317.png" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "><br /> RNN的宽度引起的MOS和MACs的关系可以指导我们在给定的计算资源下设计最优的模型</li> </ul> <p>最后是一个消融实验证明设计的跳转连接的有效性<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4dcca291b2e23e1cdc79b2b05627d1df.jpg" alt="CRUSE: Convolutional Recurrent U-net for Speech Enhancement - WenzheLiu "></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49668.htm">北京领养狗的有哪些地方（北京可以领养狗狗的宠物站）</a></p>
+                                        <p>下一个：<a href="/news/article-50190.htm">宠物粮在哪里买便宜点（宠物粮从哪里进货便宜）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48160.htm" title="spring.profiles.active的使用">spring.profiles.active的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-winxray-node.htm" title="「12月27日」最高速度21.3M/S，2024年XRay每天更新免费节点订阅链接">「12月27日」最高速度21.3M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-winxray-node.htm" title="「11月8日」最高速度22.8M/S，2024年XRay每天更新免费节点订阅链接">「11月8日」最高速度22.8M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36794.htm" title="南平宠物救助中心电话（南平宠物救助中心电话号码）">南平宠物救助中心电话（南平宠物救助中心电话号码）</a></li>
+                        <li class="py-2"><a href="/news/article-37287.htm" title="宠物粮食龙头企业（宠物粮食股）">宠物粮食龙头企业（宠物粮食股）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-winxray-node.htm" title="「1月20日」最高速度20.8M/S，2025年XRay每天更新免费节点订阅链接">「1月20日」最高速度20.8M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-winxray-node.htm" title="「11月11日」最高速度19.6M/S，2024年XRay每天更新免费节点订阅链接">「11月11日」最高速度19.6M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48507.htm" title="家用小型狗粮机器价格表（小型家用狗粮制作机）">家用小型狗粮机器价格表（小型家用狗粮制作机）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-node-share.htm" title="「11月12日」最高速度20.9M/S，2024年XRay每天更新免费节点订阅链接">「11月12日」最高速度20.9M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-winxray-node.htm" title="「12月15日」最高速度20.4M/S，2024年XRay每天更新免费节点订阅链接">「12月15日」最高速度20.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //video section -->
+
+        <!-- footer -->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                        <!-- copyright -->
+                        <p class="copy-footer-29 mt-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/xraynode/jquery-3.5.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/xraynode/jquery.magnific-popup.min.js"></script>
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/xraynode/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="/assets/website/js/frontend/xraynode/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

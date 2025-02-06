@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://xraynode.github.io/news/article-27777.htm" />
@@ -9,6 +9,34 @@
     <title>Shell基础管道符介绍</title>
         <meta name="description" content="我们之前已经有文章说过管道符了，今天这里再简单总结一下用法。  1、行提取命令grep grep命令的作用，是在指定的文件中，搜索符合条件的字符串。 命令格式： [root@localhost ~ ]" />
         <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="XRayNode每日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://xraynode.github.io/news/article-27777.htm" />
+    <meta property="og:site_name" content="XRayNode每日订阅站" />
+    <meta property="og:title" content="Shell基础管道符介绍" />
+    <meta property="og:image" content="https://xraynode.github.io/uploads/20240722/8e75c90172aaaeab40a37fef9bd0038c.webp" />
+        <meta property="og:release_date" content="2024-12-18T09:54:17" />
+    <meta property="og:updated_time" content="2024-12-18T09:54:17" />
+        <meta property="og:description" content="我们之前已经有文章说过管道符了，今天这里再简单总结一下用法。  1、行提取命令grep grep命令的作用，是在指定的文件中，搜索符合条件的字符串。 命令格式： [root@localhost ~ ]" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Shell基础管道符介绍">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
@@ -120,16 +148,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-winxray-node.htm" title="「12月27日」最高速度21.3M/S，2024年XRay每天更新免费节点订阅链接">「12月27日」最高速度21.3M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-node-subscribe.htm" title="「8月25日」最高速度19.9M/S，2024年XRay每天更新免费节点订阅链接">「8月25日」最高速度19.9M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19475.htm" title="南京哪里可以免费领养宠物狗的地方有哪些（南京最大的宠物店免费领养）">南京哪里可以免费领养宠物狗的地方有哪些（南京最大的宠物店免费领养）</a></li>
-                        <li class="py-2"><a href="/news/article-31061.htm" title="TensorFlow tensor的类型和形状转化">TensorFlow tensor的类型和形状转化</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-subscribe-node.htm" title="「10月27日」最高速度19.1M/S，2024年XRay每天更新免费节点订阅链接">「10月27日」最高速度19.1M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-today-winxray-node.htm" title="「10月25日」最高速度19.5M/S，2024年XRay每天更新免费节点订阅链接">「10月25日」最高速度19.5M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34402.htm" title="动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）">动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）</a></li>
-                        <li class="py-2"><a href="/news/article-19926.htm" title="河南动物疫苗公司有哪些（河南动物疫苗公司有哪些企业）">河南动物疫苗公司有哪些（河南动物疫苗公司有哪些企业）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-node-subscribe-links.htm" title="「10月9日」最高速度20.5M/S，2024年XRay每天更新免费节点订阅链接">「10月9日」最高速度20.5M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-winxray-node.htm" title="「12月29日」最高速度22.2M/S，2024年XRay每天更新免费节点订阅链接">「12月29日」最高速度22.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-37725.htm" title="【成都宠物托运|成都宠物托运信息】（成都托运宠物的快递公司）">【成都宠物托运|成都宠物托运信息】（成都托运宠物的快递公司）</a></li>
+                        <li class="py-2"><a href="/news/article-48161.htm" title="济南宠物狗领养中心 济南宠物狗领养中心地址">济南宠物狗领养中心 济南宠物狗领养中心地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-today-winxray-node.htm" title="「11月15日」最高速度18.3M/S，2024年XRay每天更新免费节点订阅链接">「11月15日」最高速度18.3M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22682.htm" title="动物疫苗周期和猪周期哪个长些（动物疫苗接种间隔）">动物疫苗周期和猪周期哪个长些（动物疫苗接种间隔）</a></li>
+                        <li class="py-2"><a href="/news/article-34879.htm" title="动物打疫苗打几次最好（动物打防疫针多少钱）">动物打疫苗打几次最好（动物打防疫针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-49149.htm" title="动物疫苗企业名单公示时间 动物疫苗企业名单公示时间表">动物疫苗企业名单公示时间 动物疫苗企业名单公示时间表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-winxray-node.htm" title="「12月15日」最高速度20.4M/S，2024年XRay每天更新免费节点订阅链接">「12月15日」最高速度20.4M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22222.htm" title="mybatis idea多级目录的坑">mybatis idea多级目录的坑</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-winxray-node.htm" title="「12月26日」最高速度19.2M/S，2024年XRay每天更新免费节点订阅链接">「12月26日」最高速度19.2M/S，2024年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38764.htm" title="普通人怎么考兽医证多少钱（考一个兽医证需要什么条件）">普通人怎么考兽医证多少钱（考一个兽医证需要什么条件）</a></li>
                     </ul>
     </div>
 </div>
@@ -141,25 +169,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
