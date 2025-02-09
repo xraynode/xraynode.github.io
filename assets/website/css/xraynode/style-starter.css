@@ -20305,3 +20305,6 @@ select {
 /* //contact */
 
 h3.title-style {font-size: 1.5rem;}
+
+.xcblog-blog-list .item {margin-bottom: 1.5rem;}
+.xcblog-blog-list .item h3 {font-size: 1.5rem;}
