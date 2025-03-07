@@ -62,10 +62,10 @@
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke px-0">
-                                    <a class="navbar-brand" href="/">
-                        XRay Node
-                    </a>
-                                    
+                <a class="navbar-brand" href="/">
+                                    <span>XRay Node</span>
+                                </a>
+                    
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
@@ -82,16 +82,12 @@
                             <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
                         </li>
                                                 <li class="nav-item">
-                            <a class="nav-link" href="/news/">新闻资讯</a>
+                            <a class="nav-link" href="/client.htm">客户端</a>
                         </li>
                                                 <li class="nav-item">
-                            <a class="nav-link" href="#">关于</a>
+                            <a class="nav-link" href="/news/">新闻资讯</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">联系</a>
-                        </li>
-
-                    </ul>
+                                            </ul>
                 </div>
                 <!-- //search button -->
                 <!-- toggle switch for light and dark theme -->
@@ -137,7 +133,6 @@
                                     <input type="hidden" id="share-website-info" data-name="" data-url="">
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>使用QT实现UDP发送和接收数据</h3> <ul> <li><a href="#QTUDP_2" rel="nofollow">QT实现UDP流程</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">代码实现</a></li> </ul> </li> </ul> </div> </h1> <p>Internet 协议集支持一个无连接的传输协议，该协议称为用户数据包协议（UDP，User Datagram Protocol）。UDP 为应用程序提供了一种无需建立连接就可以发送封装的 IP 数据包的方法。</p> <h2> <a id="_5" rel="nofollow"></a>代码实现</h2> <p>1.在.pro文件中添加网络模块</p> <pre><code class="prism language-cpp">Qt <span class="token operator">+=</span> network </code></pre> <p>2.接收端</p> <pre><code class="prism language-cpp"><span class="token comment">//头文件</span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QtNetwork&gt;</span>  </span>     <span class="token comment">//声明接收套接字，头文件</span>     QUdpSocket <span class="token operator">*</span>receiver<span class="token punctuation">;</span>       <span class="token comment">//声明槽函数用于接收并处理数据,头文件</span> <span class="token keyword">public</span> slots<span class="token operator">:</span><span class="token comment">//就字面意思:公开槽</span>     <span class="token keyword">void</span> <span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//监听接收端口，源文件构造函数中</span>     <span class="token punctuation">{<!-- --></span>         <span class="token comment">//创建UDP套接字对象用于接收数据</span>         receiver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QUdpSocket</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//绑定端口，参数1:IP地址（本地），参数2:端口号，参数3:绑定模式（这里是共享模式，DontShareAddress是独占端口模式）</span>         receiver<span class="token operator">-&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span>QHostAddress<span class="token operator">::</span>AnyIPv4<span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">,</span> QUdpSocket<span class="token operator">::</span>ShareAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//连接槽函数，参数1:信号所在的对象，参数2:信号，参数3:槽函数所在的对象，参数4:槽函数</span>         <span class="token comment">//信号与槽连接后，触发信号会执行槽函数</span>         <span class="token function">connect</span><span class="token punctuation">(</span>receiver<span class="token punctuation">,</span><span class="token function">SIGNAL</span><span class="token punctuation">(</span><span class="token function">readyRead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token function">SLOT</span><span class="token punctuation">(</span><span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token comment">//槽函数定义，源文件中</span> <span class="token keyword">void</span> <span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> <span class="token comment">//定义QByteArray类型变量</span>     QByteArray datagram<span class="token punctuation">;</span>     <span class="token comment">//设置data的大小为等待处理的数据报的大小，这样才能接收到完整的数据</span>     datagram<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>receiver<span class="token operator">-&gt;</span><span class="token function">pendingDatagramSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 接收数据报，将其存放到datagram中</span>     receiver<span class="token operator">-&gt;</span><span class="token function">readDatagram</span><span class="token punctuation">(</span>datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> datagram<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//处理接收数据</span>     QString str <span class="token operator">=</span> datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//此处data()函数返回char*类型，可以用QString类型接收结果</span>     <span class="token comment">//然后可以将QString显示出来，比如显示在QLabel、QLineEdit、QTextEdit或显示在程序输出里</span>     <span class="token function">qDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>str<span class="token punctuation">;</span><span class="token comment">//这里用qDebug()是显示在程序输出中，注意！！！使用前需要加头文件&lt;QDebug&gt;!!!</span> <span class="token punctuation">}</span>      <span class="token comment">//关闭接收套接字,源文件析构函数中</span>     receiver<span class="token operator">-&gt;</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>3.发送端</p> <pre><code class="prism language-cpp"><span class="token comment">//头文件</span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QtNetwork&gt;</span></span>     <span class="token comment">//声明发送套接字，头文件</span>     QUdpSocket <span class="token operator">*</span>sender<span class="token punctuation">;</span>     <span class="token comment">//发送数据，源文件构造函数中</span>     <span class="token punctuation">{<!-- --></span>         <span class="token comment">//创建UDP套接字用于发送数据</span>         sender <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QUdpSocket</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//设置要发送的字符串并转变类型</span>     QString str <span class="token operator">=</span> <span class="token string">"543se6w56"</span><span class="token punctuation">;</span>     QByteArray datagram <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toLatin1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//QByteArray datagram = ui-&gt;lineEdit_send-&gt;text().toLatin1();//这里是从ui界面单行文本框中获取数据</span>     <span class="token comment">//发送数据，参数1:要发送的数据char*类型，参数2:撒送数据的大小，参数3:ip地址,参数4:端口号</span>     sender<span class="token operator">-&gt;</span><span class="token function">writeDatagram</span><span class="token punctuation">(</span>datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> datagram<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                           <span class="token function">QHostAddress</span><span class="token punctuation">(</span><span class="token string">"192.168.10.93"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token comment">//关闭发送套接字，源文件析构函数中</span>     sender<span class="token operator">-&gt;</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>发送端和接收端可以在一个项目中实现，也可以在两个项目中分别实现。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-34989.htm">宠物猫打疫苗要多少钱（宠物猫打疫苗要多少钱一针）</a></p>
                                         <p>下一个：<a href="/news/article-35509.htm">一家宠物店每月给购买猫粮5kg以上的顾客（宠物店一个月卖几只）</a></p>
                                     </div>
                                 </div>
@@ -148,16 +143,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-40740.htm" title="宠物领养协议需要身份证复印件吗有效吗（宠物领养协议是什么）">宠物领养协议需要身份证复印件吗有效吗（宠物领养协议是什么）</a></li>
-                        <li class="py-2"><a href="/news/article-50190.htm" title="宠物粮在哪里买便宜点（宠物粮从哪里进货便宜）">宠物粮在哪里买便宜点（宠物粮从哪里进货便宜）</a></li>
-                        <li class="py-2"><a href="/news/article-49666.htm" title="动物疫苗管理法律法规最新版本是什么样的（动物疫苗政策）">动物疫苗管理法律法规最新版本是什么样的（动物疫苗政策）</a></li>
-                        <li class="py-2"><a href="/news/article-34402.htm" title="动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）">动物疫苗价格表图片高清版下载软件（动物疫苗多少钱一支）</a></li>
-                        <li class="py-2"><a href="/news/article-36795.htm" title="重庆宠物领养平台免费有哪些公司呢（重庆宠物领养重庆宠物赠送）">重庆宠物领养平台免费有哪些公司呢（重庆宠物领养重庆宠物赠送）</a></li>
-                        <li class="py-2"><a href="/news/article-48508.htm" title="领养宠物的条件（领养宠物条件基本）">领养宠物的条件（领养宠物条件基本）</a></li>
-                        <li class="py-2"><a href="/news/article-38248.htm" title="咸生鸭蛋生的怎么吃(生鸭蛋怎么做成咸蛋黄)">咸生鸭蛋生的怎么吃(生鸭蛋怎么做成咸蛋黄)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-winxray-windows.htm" title="「11月14日」最高速度18.7M/S，2024年XRay每天更新免费节点订阅链接">「11月14日」最高速度18.7M/S，2024年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-winxray-node-share.htm" title="「1月15日」最高速度21.7M/S，2025年XRay每天更新免费节点订阅链接">「1月15日」最高速度21.7M/S，2025年XRay每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-48161.htm" title="济南宠物狗领养中心 济南宠物狗领养中心地址">济南宠物狗领养中心 济南宠物狗领养中心地址</a></li>
+                        <li class="py-2"><a href="/news/article-59500.htm" title="动物注射疫苗注意事项及禁忌症是什么意思（动物疫苗使用时的注意事项有哪些）">动物注射疫苗注意事项及禁忌症是什么意思（动物疫苗使用时的注意事项有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-winxray-node-github.htm" title="「1月16日」最高速度19.9M/S，2025年XRay每天更新免费节点订阅链接">「1月16日」最高速度19.9M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39742.htm" title="上海24小时宠物急诊（上海宠物急救中心电话）">上海24小时宠物急诊（上海宠物急救中心电话）</a></li>
+                        <li class="py-2"><a href="/news/article-44180.htm" title="迅德宠物医院管理系统（迅德宠物医院管理系统多少钱）">迅德宠物医院管理系统（迅德宠物医院管理系统多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-64852.htm" title="三国杀招式介绍（三国杀技能详解）">三国杀招式介绍（三国杀技能详解）</a></li>
+                        <li class="py-2"><a href="/news/article-60092.htm" title="0基础学MySQL数据库—从小白到大牛（1）初识数据库">0基础学MySQL数据库—从小白到大牛（1）初识数据库</a></li>
+                        <li class="py-2"><a href="/news/article-58531.htm" title="mysql 中插入百万条数据">mysql 中插入百万条数据</a></li>
+                        <li class="py-2"><a href="/news/article-52812.htm" title="动物疫苗的种类有哪些类型图片 动物疫苗的种类有哪些类型图片大全">动物疫苗的种类有哪些类型图片 动物疫苗的种类有哪些类型图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-50702.htm" title="动物防疫经费（动物防疫经费使用方案）">动物防疫经费（动物防疫经费使用方案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-node-subscribe.htm" title="「2月3日」最高速度19.1M/S，2025年XRay每天更新免费节点订阅链接">「2月3日」最高速度19.1M/S，2025年XRay每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -169,16 +164,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
