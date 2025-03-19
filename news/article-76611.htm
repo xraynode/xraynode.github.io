@@ -1,0 +1,290 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://xraynode.github.io/news/article-76611.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Feign的hystrix熔断器不起作用</title>
+        <meta name="description" content="问题描述 在开发spring-cloud项目的时候，Feign的熔断器不起作用，指定了fallback不起作用。 @FeignClient(name="produce", fallback=Produ" />
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="XRayNode每日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://xraynode.github.io/news/article-76611.htm" />
+    <meta property="og:site_name" content="XRayNode每日订阅站" />
+    <meta property="og:title" content="Feign的hystrix熔断器不起作用" />
+    <meta property="og:image" content="https://xraynode.github.io/uploads/20240722/5dfc5c11c676f3cd545dc55535a703c0.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:14:27" />
+    <meta property="og:updated_time" content="2025-03-18T06:14:27" />
+        <meta property="og:description" content="问题描述 在开发spring-cloud项目的时候，Feign的熔断器不起作用，指定了fallback不起作用。 @FeignClient(name="produce", fallback=Produ" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Feign的hystrix熔断器不起作用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/fontawesome-all.min.css">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX80YQ9BLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX80YQ9BLW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                <a class="navbar-brand" href="/">
+                                    <span>XRay Node</span>
+                                </a>
+                    
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+                <!-- //search button -->
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h1 class="inner-text-title font-weight-bold pt-5">Feign的hystrix熔断器不起作用</h1>
+                <ul class="breadcrumbs-custom-path mt-3">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><i class="fas fa-angle-right mx-2"></i>新闻资讯</a></li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>正文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- video section -->
+    <section class="w3l-ab-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>问题描述</h2> <p>在开发spring-cloud项目的时候，Feign的熔断器不起作用，指定了fallback不起作用。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"produce"</span><span class="token punctuation">,</span> fallback<span class="token operator">=</span><span class="token class-name">ProduceCallback</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">interface</span><span class="token class-name">ProduceSevice</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/index"</span><span class="token punctuation">)</span><span class="token class-name">String</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-java"><span class="token annotation punctuation">@Component</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ProduceCallback</span><span class="token keyword">implements</span><span class="token class-name">ProduceSevice</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"this is error"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>当produce停掉以后，直接报错，不会走fallback指定的熔断方法。</p> <h2><a id="_19" rel="nofollow"></a>互联网上的解决方案</h2> <p>基本上网络上都是指的没有开启hystrix，解决方法是在yml中设置</p> <pre><code class="prism language-yml"><span class="token key atrule">feign</span><span class="token punctuation">:</span><span class="token key atrule">hystrix</span><span class="token punctuation">:</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span></code></pre> <p>但是按照这个办法，不起作用 。</p> <h2><a id="_28" rel="nofollow"></a>摸索到的解决方法</h2> <p>下载了很多源代码，在我本地跑起来hystrix可以起作用，但是我自己建立的项目就是无法起作用。类似的貌似还有bootstrap.yml不起作用。最后排除发现和网络上的代码最大的产品就是spring-cloud的版本区别。</p> <pre><code class="prism language-yml">&lt;properties<span class="token punctuation">&gt;</span>         &lt;java.version<span class="token punctuation">&gt;</span>1.8&lt;/java.version<span class="token punctuation">&gt;</span>         &lt;spring<span class="token punctuation">-</span>cloud.version<span class="token punctuation">&gt;</span>2020.0.0<span class="token punctuation">-</span>M6&lt;/spring<span class="token punctuation">-</span>cloud.version<span class="token punctuation">&gt;</span>     &lt;/properties<span class="token punctuation">&gt;</span></code></pre> <p>我用IDEA建立项目后默认的spring-cloud.version版本是这个样子的。<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://spring.io/projects/spring-cloud"  rel="nofollow">官网关于spring-cloud.version的介绍</a><br /> 我修改为 Hoxton.SR9 后一切正常。同时把springboot的版本降低为2.3.5.REALSE后表现正常，莫非2020.0.0-M6后对这块代码有巨大变化。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75938.htm">动物医院实践个人总结怎么写啊（动物医院个人总结2000字）</a></p>
+                                        <p>下一个：<a href="/news/article-76612.htm">可以考宠物医生执照吗知乎（可以考宠物医生执照吗知乎推荐）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-winxray-node-share.htm" title="「1月8日」最高速度18.8M/S，2025年XRay每天更新免费节点订阅链接">「1月8日」最高速度18.8M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50187.htm" title="CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu">CRUSE: Convolutional Recurrent U-net for Speech Enhancement &#8211; WenzheLiu</a></li>
+                        <li class="py-2"><a href="/news/article-41224.htm" title="可以自己买疫苗去宠物店打吗（可以自己买疫苗去宠物店打吗现在）">可以自己买疫苗去宠物店打吗（可以自己买疫苗去宠物店打吗现在）</a></li>
+                        <li class="py-2"><a href="/news/article-54992.htm" title="狗粮制作机器设备价格 狗粮制作机器设备价格多少">狗粮制作机器设备价格 狗粮制作机器设备价格多少</a></li>
+                        <li class="py-2"><a href="/news/article-44717.htm" title="被猫爪子勾了一下破皮没出血用碘伏消毒了（被猫爪子勾了一下破皮没出血用碘伏消毒了怎么办）">被猫爪子勾了一下破皮没出血用碘伏消毒了（被猫爪子勾了一下破皮没出血用碘伏消毒了怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-61844.htm" title="2020年春季动物防疫工作总结（春季动物防疫工作汇报）">2020年春季动物防疫工作总结（春季动物防疫工作汇报）</a></li>
+                        <li class="py-2"><a href="/news/article-51756.htm" title="买什么牌子的耳机好用(耳朵聋了买什么牌子的耳机好)">买什么牌子的耳机好用(耳朵聋了买什么牌子的耳机好)</a></li>
+                        <li class="py-2"><a href="/news/article-49666.htm" title="动物疫苗管理法律法规最新版本是什么样的（动物疫苗政策）">动物疫苗管理法律法规最新版本是什么样的（动物疫苗政策）</a></li>
+                        <li class="py-2"><a href="/news/article-58369.htm" title="宠物生病咨询平台（宠物生病去哪里治疗）">宠物生病咨询平台（宠物生病去哪里治疗）</a></li>
+                        <li class="py-2"><a href="/news/article-37287.htm" title="宠物粮食龙头企业（宠物粮食股）">宠物粮食龙头企业（宠物粮食股）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //video section -->
+
+        <!-- footer -->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                        <!-- copyright -->
+                        <p class="copy-footer-29 mt-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/xraynode/jquery-3.5.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/xraynode/jquery.magnific-popup.min.js"></script>
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/xraynode/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="/assets/website/js/frontend/xraynode/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
