@@ -1,0 +1,290 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://xraynode.github.io/news/article-83548.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>python连接数据库并执行SQL语句</title>
+        <meta name="description" content="第一次发表博客,如果有什么错误请见谅  1.创建与数据库连接对象 2.建立游标对象 3.利用游标对象 执行SQL语句命令 4.#提交到数据库 5.关闭游标对象 6.关闭数据库连接 7.建立一个Mysq" />
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="XRayNode每日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://xraynode.github.io/news/article-83548.htm" />
+    <meta property="og:site_name" content="XRayNode每日订阅站" />
+    <meta property="og:title" content="python连接数据库并执行SQL语句" />
+    <meta property="og:image" content="https://xraynode.github.io/uploads/20240722/dedb4ce40dd31a57145fc8af61396308.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:56:52" />
+    <meta property="og:updated_time" content="2025-03-28T09:56:52" />
+        <meta property="og:description" content="第一次发表博客,如果有什么错误请见谅  1.创建与数据库连接对象 2.建立游标对象 3.利用游标对象 执行SQL语句命令 4.#提交到数据库 5.关闭游标对象 6.关闭数据库连接 7.建立一个Mysq" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python连接数据库并执行SQL语句">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/fontawesome-all.min.css">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX80YQ9BLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX80YQ9BLW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                <a class="navbar-brand" href="/">
+                                    <span>XRay Node</span>
+                                </a>
+                    
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+                <!-- //search button -->
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h1 class="inner-text-title font-weight-bold pt-5">python连接数据库并执行SQL语句</h1>
+                <ul class="breadcrumbs-custom-path mt-3">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><i class="fas fa-angle-right mx-2"></i>新闻资讯</a></li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>正文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- video section -->
+    <section class="w3l-ab-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>第一次发表博客,如果有什么错误请见谅</p> <ul> <li><strong>1.创建与数据库连接对象</strong></li> <li><strong>2.建立游标对象</strong></li> <li><strong>3.利用游标对象 执行SQL语句命令</strong></li> <li><strong>4.#提交到数据库</strong></li> <li><strong>5.关闭游标对象</strong></li> <li><strong>6.关闭数据库连接</strong></li> <li><strong>7.建立一个Mysqlpython 类 实现数据库的连接 关闭 和执行SQL语句操作,实现对数据库连接的封装</strong></li> </ul> <hr/> <h2 id="个人理解">个人理解</h2> <blockquote> <p>因为在所有计算机语言中, 连接数据库是必不可少的. 所以我们需要学会怎么用python语句去实现连接数据库, 并对数据库进行操作。 因为也是在学习所以也算是记录自己的点滴</p> </blockquote> <p>连接数据库的操作 分为 以上我列出的几步， 第一步 也是最重要的就是连接上你的数据库。连接上你的数据库你就需要知道一些你数据库的信息。例如: 你计算机的主机号 权限用户名 密码 端口号等</p> <h3 id="以下列举我本机的一些需要用到的信息">以下列举我本机的一些需要用到的信息</h3> <table> <thead> <tr> <th>数据库信息</th> <th>详细信息</th> </tr> </thead> <tbody> <tr> <td>host</td> <td>localhost</td> </tr> <tr> <td>user</td> <td>root</td> </tr> <tr> <td>password</td> <td>（这个密码可以在你计算机里自己设定 或者是虚拟机里你自己设定的）一般都设置为123456</td> </tr> <tr> <td>port（端口号）</td> <td>3306</td> </tr> <tr> <td>database（数据库）</td> <td>这里就是填写你需要连接进哪个数据库的信息</td> </tr> <tr> <td>charset</td> <td>utf8</td> </tr> </tbody> </table> <h3 id="代码块">代码块</h3> <pre class="prettyprint"><code class="language-python hljs"><span class="hljs-keyword">import</span> pymysql  <span class="hljs-comment">#1.创建与数据库连接对象</span> db =pymysql.connect(host=<span class="hljs-string">"localhost"</span>,user=<span class="hljs-string">"root"</span>,                    password=<span class="hljs-string">"123456"</span>,database=<span class="hljs-string">"db4"</span>,                    charset=<span class="hljs-string">"utf8"</span>)  <span class="hljs-comment">#2.利用db方法创建游标对象</span> cur = db.cursor()  <span class="hljs-comment">#3.利用游标对象execute()方法执行SQL命令</span> <span class="hljs-comment">#cur.execute(";") #这里填写正确的SQL语句  例如:</span> cur.execute(<span class="hljs-string">"insert into sheng values\             (16,300000,'台湾省');"</span>) <span class="hljs-comment">#4.提交到数据库执行</span> db.commit() print(<span class="hljs-string">"OK"</span>) <span class="hljs-comment">#5.关闭游标对象</span> cur.close()  <span class="hljs-comment">#6.断开数据库连接</span> db.close() </code></pre> <p>也可以将自己打的连接关闭数据库 封装成一个类，这样以后就更方便使用了</p> <pre class="prettyprint"><code class="language-python hljs"><span class="hljs-keyword">from</span> pymysql <span class="hljs-keyword">import</span> * <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mysqlpython</span>:</span>     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,database,host=<span class="hljs-string">"localhost"</span>,user=<span class="hljs-string">"root"</span>,                  password=<span class="hljs-string">"123456"</span>,port=<span class="hljs-number">3306</span>,charset=<span class="hljs-string">"utf8"</span>)</span>:</span>         self.host=host         self.user=user         self.password=password         self.port=port         self.database=database         self.charset=charset <span class="hljs-comment">#数据库连接方法:  </span>     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">open</span><span class="hljs-params">(self)</span>:</span>         self.db=connect(host=self.host,user=self.user,                         password=self.password,port=self.port,                         database=self.database,                         charset=self.charset) <span class="hljs-comment">#游标对象</span>         self.cur=self.db.cursor() <span class="hljs-comment">#数据库关闭方法:</span>     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close</span><span class="hljs-params">(self)</span>:</span>         self.cur.close()         self.db.close() <span class="hljs-comment">#数据库执行操作方法:</span>     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zhixing</span><span class="hljs-params">(self,sql,L=[])</span>:</span>         <span class="hljs-keyword">try</span>:             self.open()             self.cur.execute(sql,L)             self.db.commit()             print(<span class="hljs-string">"ok"</span>)         <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:             self.db.rollback()             print(<span class="hljs-string">"Failed"</span>,e)         self.close() <span class="hljs-comment">#数据库查询所有操作方法:    </span>     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">all</span><span class="hljs-params">(self,sql,L=[])</span>:</span>         <span class="hljs-keyword">try</span>:             self.open()             self.cur.execute(sql,L)             result=self.cur.fetchall()             <span class="hljs-keyword">return</span> result         <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:             print(<span class="hljs-string">"Failed"</span>,e)         self.close() </code></pre> <p>这样的话 就可以在别的地方直接导入就可以使用了 （from …. import…) <br /> 最后千万别忘了关闭数据库连接哦 ~ </p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82837.htm">兰州宠物用品批发市场有哪些品牌（兰州最大的宠物店）</a></p>
+                                        <p>下一个：<a href="/news/article-83549.htm">学宠物医生报考哪个学校专科比较好考（学宠物医生上什么大专）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-61263.htm" title="进程内优雅管理多个服务">进程内优雅管理多个服务</a></li>
+                        <li class="py-2"><a href="/news/article-52812.htm" title="动物疫苗的种类有哪些类型图片 动物疫苗的种类有哪些类型图片大全">动物疫苗的种类有哪些类型图片 动物疫苗的种类有哪些类型图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-latest-winxray-node.htm" title="「1月19日」最高速度20.7M/S，2025年XRay每天更新免费节点订阅链接">「1月19日」最高速度20.7M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-73906.htm" title="数字的所有数字的递归乘积-JavaScript">数字的所有数字的递归乘积-JavaScript</a></li>
+                        <li class="py-2"><a href="/news/article-77977.htm" title="南京猫咪领养中心 南京猫咪领养中心官网">南京猫咪领养中心 南京猫咪领养中心官网</a></li>
+                        <li class="py-2"><a href="/news/article-62456.htm" title="动物疫苗在哪里买便宜些（动物疫苗经销商）">动物疫苗在哪里买便宜些（动物疫苗经销商）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-winxray-node-share.htm" title="「1月8日」最高速度18.8M/S，2025年XRay每天更新免费节点订阅链接">「1月8日」最高速度18.8M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-65497.htm" title="洗砂机全套设备价格表（泥浆分离机 泥浆离心脱水机）">洗砂机全套设备价格表（泥浆分离机 泥浆离心脱水机）</a></li>
+                        <li class="py-2"><a href="/news/article-38248.htm" title="咸生鸭蛋生的怎么吃(生鸭蛋怎么做成咸蛋黄)">咸生鸭蛋生的怎么吃(生鸭蛋怎么做成咸蛋黄)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-latest-winxray-node.htm" title="「3月5日」最高速度21.8M/S，2025年XRay每天更新免费节点订阅链接">「3月5日」最高速度21.8M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //video section -->
+
+        <!-- footer -->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                        <!-- copyright -->
+                        <p class="copy-footer-29 mt-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/xraynode/jquery-3.5.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/xraynode/jquery.magnific-popup.min.js"></script>
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/xraynode/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="/assets/website/js/frontend/xraynode/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
