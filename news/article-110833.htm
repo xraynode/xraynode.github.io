@@ -1,0 +1,292 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://xraynode.github.io/news/article-110833.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spring 源码（2）Spring IOC 容器 前戏准备工作</title>
+        <meta name="description" content="Spring 最重要的方法refresh方法 根据上一篇文章https://www.cnblogs.com/redwinter/p/16141285.htmlSpring Bean IOC 的创建流程" />
+        <link rel="icon" href="/assets/website/img/xraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="XRayNode每日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://xraynode.github.io/news/article-110833.htm" />
+    <meta property="og:site_name" content="XRayNode每日订阅站" />
+    <meta property="og:title" content="Spring 源码（2）Spring IOC 容器 前戏准备工作" />
+    <meta property="og:image" content="https://xraynode.github.io/uploads/20240722/3d6aec9532703697cf858e525eb34967.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:29:52" />
+    <meta property="og:updated_time" content="2025-05-03T10:29:52" />
+        <meta property="og:description" content="Spring 最重要的方法refresh方法 根据上一篇文章https://www.cnblogs.com/redwinter/p/16141285.htmlSpring Bean IOC 的创建流程" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring 源码（2）Spring IOC 容器 前戏准备工作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- google-fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //google-fonts -->
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/fontawesome-all.min.css">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/website/css/xraynode/style-starter.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX80YQ9BLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX80YQ9BLW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                <a class="navbar-brand" href="/">
+                                    <span>XRay Node</span>
+                                </a>
+                    
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+                <!-- //search button -->
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//header-->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h1 class="inner-text-title font-weight-bold pt-5">Spring 源码（2）Spring IOC 容器 前戏准备工作</h1>
+                <ul class="breadcrumbs-custom-path mt-3">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/"><i class="fas fa-angle-right mx-2"></i>新闻资讯</a></li>
+                    <li class="active"><i class="fas fa-angle-right mx-2"></i>正文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- video section -->
+    <section class="w3l-ab-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<h3 id="spring-最重要的方法refresh方法">Spring 最重要的方法refresh方法</h3> <p>根据上一篇文章https://www.cnblogs.com/redwinter/p/16141285.html<code>Spring Bean IOC</code> 的创建流程继续解读<code>Spring</code>源码，本篇文章解读<code>Spring</code> 源码最重要的方法<code>refresh</code>方法。</p> <p>这个方法位于：AbstractApplicationContext#refresh，这个方法中总共有15个方法，Spring源码的精髓就是这15个方法中。</p> <pre><code class="language-java">@Override 	public void refresh() throws BeansException, IllegalStateException { 		synchronized (this.startupShutdownMonitor) { 			// Prepare this context for refreshing. 			// 准备工作,加载环境变量等操作 			// 1、设置容器启动时间 			// 2、设置停止状态为false 			// 3、设置活跃状态为true 			// 4、获取Environment对象，并设置属性值 			// 5、设置监听器和事件的集合，模式为空的集合 			prepareRefresh();  			// Tell the subclass to refresh the internal bean factory. 			// 告诉子类刷新内部 bean 工厂, 获取刷新bean的工厂: DefaultListableBeanFactory 			// 并且加载BeanDefinition 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();  			// Prepare the bean factory for use in this context. 			// 准备BeanFactory 设置一些属性 			prepareBeanFactory(beanFactory);  			try { 				// Allows post-processing of the bean factory in context subclasses.                  // 允许子类进行扩展BeanFactoryPostProcessor 				postProcessBeanFactory(beanFactory);  				// Invoke factory processors registered as beans in the context. 				// 实例化并执行BeanFactoryPostProcessor 				invokeBeanFactoryPostProcessors(beanFactory);  				// Register bean processors that intercept bean creation. 				// 实例化并注册BeanPostProcessor 				registerBeanPostProcessors(beanFactory);  				// Initialize message source for this context. 				// 国际化设置 				initMessageSource();  				// Initialize event multicaster for this context. 				// 实例化事件多播器 				initApplicationEventMulticaster();  				// Initialize other special beans in specific context subclasses. 				// 初始化特定上下文子类中的其他特殊bean，web容器 				onRefresh();  				// Check for listener beans and register them. 				// 检查listener bean 并注册它们 				// 注册监听器 				registerListeners();  				// Instantiate all remaining (non-lazy-init) singletons. 				// 实例化所有剩余的（非惰性初始化）单例。 				finishBeanFactoryInitialization(beanFactory);  				// Last step: publish corresponding event. 				// 发布相应的事件 				finishRefresh(); 			}  			catch (BeansException ex) { 				if (logger.isWarnEnabled()) { 					logger.warn("Exception encountered during context initialization - " + 							"cancelling refresh attempt: " + ex); 				}  				// Destroy already created singletons to avoid dangling resources. 				// 销毁Bean 				destroyBeans();  				// Reset 'active' flag. 				// 重置 active 标志 				cancelRefresh(ex);  				// Propagate exception to caller. 				throw ex; 			}  			finally { 				// Reset common introspection caches in Spring's core, since we 				// might not ever need metadata for singleton beans anymore... 				resetCommonCaches(); 			} 		} 	}</code></pre> <h3 id="前戏准备-preparerefresh-方法">前戏准备 prepareRefresh 方法</h3> <p>Spring的前戏准备大概就是做了以下几件事：</p> <ul> <li>设置容器的启动时间</li> <li>设置容器的停止状态为false</li> <li>设置容器的激活状态为true</li> <li>获取环境信息并验证必要的属性</li> <li>准备监听器和事件的容器</li> </ul> <pre><code class="language-java">protected void prepareRefresh() { 		// Switch to active. 		// 设置启动时间 设置标识位 		this.startupDate = System.currentTimeMillis(); 		// 设置容器停止标识为false 		this.closed.set(false); 		// 设置容器激活标识为true 		this.active.set(true); 		// Initialize any placeholder property sources in the context environment. 		// 初始化上下文环境中的任何占位符属性源 		// 留给子类进行扩展，比如添加必须的属性值验证 		initPropertySources();  		// Validate that all properties marked as required are resolvable: 		// see ConfigurablePropertyResolver#setRequiredProperties 		// 获取环境对象，并验证需要的属性 		getEnvironment().validateRequiredProperties();  		// Store pre-refresh ApplicationListeners... 		// 准备应用监听器和实践的容器初始化 		if (this.earlyApplicationListeners == null) { 			this.earlyApplicationListeners = new LinkedHashSet&lt;&gt;(this.applicationListeners); 		} 		else { 			// Reset local application listeners to pre-refresh state. 			// 如果不为空，那么就清空掉，并设置新的早期的监听器进去 			this.applicationListeners.clear(); 			this.applicationListeners.addAll(this.earlyApplicationListeners); 		} 		// Allow for the collection of early ApplicationEvents, 		// to be published once the multicaster is available... 		this.earlyApplicationEvents = new LinkedHashSet&lt;&gt;(); 	}</code></pre> <p>这里有个问题就是他的环境信息是何时设置进去的呢？</p> <p>实际上是在容器启动时调用了父类构造函数时设置进去的，<code>Environment</code>他是一个接口，他有个重要的实现类叫<code>StandardEnvironment</code> ，在Spring启动的时候就会使用这个类进行环境信息的加载，最终他会调用到<code>System#getProperties</code> 和<code>System#getenv</code>方法，然后将加载到属性放在Map中进行保存。</p> <p>大概的流程如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4cc909257a8bbe1a4a9d463937756c9d.jpg" alt="Spring 源码（2）Spring IOC 容器 前戏准备工作"></p> <p>标记的类就是<code>Environment</code>环境信息的加载过程调用的类，最终会调用到<code>System#getProperties</code> 和<code>System#getenv</code>方法，然后完成环境信息的加载，主要加载的信息就是系统的环境变量，比如在<code>Windows</code>中配置的环境变量或者启动类中使用<code>-D</code>参数配置的启动参数都会进行加载到<code>StandardEnvironment</code> 这个类中，类似于使用-<code>Dxxx.name=123</code>这种参数会加载到<code>systemProperties</code>中，配置的<code>windows</code>环境变量会加载<code>systemEnvironment</code>中。</p> <p>这个就是<code>Spring IOC</code> 创建的第一个方法的前戏准备工作，接下来解读默认的<code>BeanFactory</code>实现类<code>DefaultListableBeanFactory</code>的创建过程。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110106.htm">动物疫苗法规最新（动物疫苗管理制度）</a></p>
+                                        <p>下一个：<a href="/news/article-110834.htm">开一个宠物店大概需要多少钱呢知乎（开一个宠物店需要投资多少钱）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-winxray-node.htm" title="「4月25日」最高速度18.5M/S，2025年XRay每天更新免费节点订阅链接">「4月25日」最高速度18.5M/S，2025年XRay每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-91359.htm" title="上海宠物领养网点有哪些地方（上海宠物领养地址）">上海宠物领养网点有哪些地方（上海宠物领养地址）</a></li>
+                        <li class="py-2"><a href="/news/article-86422.htm" title="宠物免费领养平台下载手机版安装（宠物领养软件下载）">宠物免费领养平台下载手机版安装（宠物领养软件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-96016.htm" title="猫粮所有品牌app下载（猫粮品牌都有哪些）">猫粮所有品牌app下载（猫粮品牌都有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-106498.htm" title="宠物猫驱虫多少钱一次4只（宠物猫驱虫多少钱一次4只狗）">宠物猫驱虫多少钱一次4只（宠物猫驱虫多少钱一次4只狗）</a></li>
+                        <li class="py-2"><a href="/news/article-98182.htm" title="佳雯宠物医院几点关门呀（佳雯宠物医院总院投诉电话）">佳雯宠物医院几点关门呀（佳雯宠物医院总院投诉电话）</a></li>
+                        <li class="py-2"><a href="/news/article-89286.htm" title="5种SpringMvc的异步处理方式你都了解吗？">5种SpringMvc的异步处理方式你都了解吗？</a></li>
+                        <li class="py-2"><a href="/news/article-101842.htm" title="南京无偿领养宠物猫吧地址（南京领养猫咪）">南京无偿领养宠物猫吧地址（南京领养猫咪）</a></li>
+                        <li class="py-2"><a href="/news/article-93770.htm" title="动物疫苗研究方向及前景（动物疫苗研究方向及前景如何）">动物疫苗研究方向及前景（动物疫苗研究方向及前景如何）</a></li>
+                        <li class="py-2"><a href="/news/article-109265.htm" title="动物疫苗批号查询网址是什么 动物疫苗批号查询网址是什么啊">动物疫苗批号查询网址是什么 动物疫苗批号查询网址是什么啊</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //video section -->
+
+        <!-- footer -->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                        <!-- copyright -->
+                        <p class="copy-footer-29 mt-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            XRayNode每日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="/assets/website/js/frontend/xraynode/jquery-3.5.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/xraynode/jquery.magnific-popup.min.js"></script>
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/website/js/frontend/xraynode/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="/assets/website/js/frontend/xraynode/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
