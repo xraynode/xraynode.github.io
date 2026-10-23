@@ -291,34 +291,9 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
-    <div class="panel-body">
-        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 节点手动切换有什么优势？</h5></div>
-    <div class="panel-body">
-        手动切换节点可以让用户根据网络延迟和用途选择最合适的节点，适合在节点不稳定或特殊访问需求下使用。虽然不自动，但可以灵活调整，提高访问效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何配置？</h5></div>
-    <div class="panel-body">
-        用户可添加订阅 URL，Nekoray 会定期下载并替换旧节点。这样可保证节点列表始终最新，减少手动维护，提高使用效率，同时保证网络访问稳定可靠。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 服务端出现 handshake timeout 如何处理？</h5></div>
-    <div class="panel-body">
-        该错误通常由网络延迟或证书配置不一致导致。请检查服务器带宽是否充足、TLS 证书链完整，并确保客户端 SNI 与证书匹配。必要时更换节点或优化拥塞控制算法。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 能否手动添加节点？</h5></div>
     <div class="panel-body">
         Potatso Lite 支持手动添加 Shadowsocks 节点。用户在“配置”中选择添加节点，输入服务器、端口、加密方式等信息即可建立连接，适合手动管理单个线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash Premium 与普通版本有何不同？</h5></div>
-    <div class="panel-body">
-        Clash Premium 是 Clash 的增强版，增加了 TUN 模式、脚本功能、流量统计与规则订阅等高级特性。它更适合有复杂分流需求的用户，尤其是需要对系统级代理进行全局控制的场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
@@ -326,19 +301,44 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
         Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 自动节点切换如何改善网页访问速度？</h5></div>
-    <div class="panel-body">
-        Clash 结合策略组和延迟检测功能，自动选择延迟低、稳定性高的节点处理网页流量。提升访问速度和稳定性，减少加载时间和浏览卡顿，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 多路复用对短连接性能有何提升？</h5></div>
     <div class="panel-body">
         多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接场景，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 服务端出现 handshake timeout 如何处理？</h5></div>
+    <div class="panel-body">
+        该错误通常由网络延迟或证书配置不一致导致。请检查服务器带宽是否充足、TLS 证书链完整，并确保客户端 SNI 与证书匹配。必要时更换节点或优化拥塞控制算法。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何配置？</h5></div>
+    <div class="panel-body">
+        用户可添加订阅 URL，Nekoray 会定期下载并替换旧节点。这样可保证节点列表始终最新，减少手动维护，提高使用效率，同时保证网络访问稳定可靠。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 节点手动切换有什么优势？</h5></div>
+    <div class="panel-body">
+        手动切换节点可以让用户根据网络延迟和用途选择最合适的节点，适合在节点不稳定或特殊访问需求下使用。虽然不自动，但可以灵活调整，提高访问效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 自动节点切换如何改善网页访问速度？</h5></div>
+    <div class="panel-body">
+        Clash 结合策略组和延迟检测功能，自动选择延迟低、稳定性高的节点处理网页流量。提升访问速度和稳定性，减少加载时间和浏览卡顿，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 的端口不可达怎么办？</h5></div>
     <div class="panel-body">
-        检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。    </div>
+        检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash Premium 与普通版本有何不同？</h5></div>
+    <div class="panel-body">
+        Clash Premium 是 Clash 的增强版，增加了 TUN 模式、脚本功能、流量统计与规则订阅等高级特性。它更适合有复杂分流需求的用户，尤其是需要对系统级代理进行全局控制的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
+    <div class="panel-body">
+        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -386,16 +386,16 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-winxray-windows.htm" title="「9月30日」最高速度22.6M/S，2025年XRay每天更新免费节点订阅链接">「9月30日」最高速度22.6M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-21.htm" title="「9月21日」最高速度22.8M/S，2025年XRay每天更新免费节点订阅链接">「9月21日」最高速度22.8M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-6-latest-winxray-node.htm" title="「10月6日」最高速度20.6M/S，2025年XRay每天更新免费节点订阅链接">「10月6日」最高速度20.6M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/today-winxray-node-2026-10-11.htm" title="「10月11日」最高速度22.7M/S，2025年XRay每天更新免费节点订阅链接">「10月11日」最高速度22.7M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-16-free-node-subscribe.htm" title="「9月16日」最高速度22.5M/S，2025年XRay每天更新免费节点订阅链接">「9月16日」最高速度22.5M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-subscribe-node.htm" title="「9月6日」最高速度22.1M/S，2025年XRay每天更新免费节点订阅链接">「9月6日」最高速度22.1M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-25.htm" title="「9月25日」最高速度20.1M/S，2025年XRay每天更新免费节点订阅链接">「9月25日」最高速度20.1M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-14-winxray-node-share.htm" title="「10月14日」最高速度20.9M/S，2025年XRay每天更新免费节点订阅链接">「10月14日」最高速度20.9M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-11.htm" title="「9月11日」最高速度19.6M/S，2025年XRay每天更新免费节点订阅链接">「9月11日」最高速度19.6M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-9.htm" title="「10月9日」最高速度20.2M/S，2025年XRay每天更新免费节点订阅链接">「10月9日」最高速度20.2M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-5.htm" title="「9月5日」最高速度22.1M/S，2025年XRay每天更新免费节点订阅链接">「9月5日」最高速度22.1M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-22-winxray-node-github.htm" title="「9月22日」最高速度22.3M/S，2025年XRay每天更新免费节点订阅链接">「9月22日」最高速度22.3M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-winxray-node-2026-9-17.htm" title="「9月17日」最高速度19.3M/S，2025年XRay每天更新免费节点订阅链接">「9月17日」最高速度19.3M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-winxray-node-2026-9-7.htm" title="「9月7日」最高速度19.3M/S，2025年XRay每天更新免费节点订阅链接">「9月7日」最高速度19.3M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/winxray-github-2026-10-17.htm" title="「10月17日」最高速度19.1M/S，2025年XRay每天更新免费节点订阅链接">「10月17日」最高速度19.1M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-15.htm" title="「9月15日」最高速度22M/S，2025年XRay每天更新免费节点订阅链接">「9月15日」最高速度22M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-19.htm" title="「10月19日」最高速度18.4M/S，2025年XRay每天更新免费节点订阅链接">「10月19日」最高速度18.4M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/today-winxray-node-2026-10-23.htm" title="「10月23日」最高速度22.3M/S，2025年XRay每天更新免费节点订阅链接">「10月23日」最高速度22.3M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-winxray-node-github.htm" title="「10月10日」最高速度21.3M/S，2025年XRay每天更新免费节点订阅链接">「10月10日」最高速度21.3M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-10-winxray-github.htm" title="「9月10日」最高速度20.4M/S，2025年XRay每天更新免费节点订阅链接">「9月10日」最高速度20.4M/S，2025年XRay每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -407,7 +407,7 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
